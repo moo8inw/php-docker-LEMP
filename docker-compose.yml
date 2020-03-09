@@ -26,10 +26,10 @@ services:
     restart: always
     image: mariadb:10.1
     environment:
-      MYSQL_ROOT_PASSWORD: #Control001
-      MYSQL_USER: admwp
-      MYSQL_PASSWORD: #Control001
-      MYSQL_DATABASE: database_wp
+      MYSQL_ROOT_PASSWORD: 123456
+      MYSQL_USER: user
+      MYSQL_PASSWORD: password
+      MYSQL_DATABASE: database
     volumes:
       - ./mysql/databases:/var/lib/mysql
       - ./log/mysql:/var/log/mysql
