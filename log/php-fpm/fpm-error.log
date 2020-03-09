@@ -1,0 +1,16 @@
+[28-Jan-2020 03:19:44] NOTICE: fpm is running, pid 1
+[28-Jan-2020 03:19:44] NOTICE: ready to handle connections
+[28-Jan-2020 03:29:09] WARNING: [pool www] child 6 said into stderr: "sendmail: can't connect to remote host (127.0.0.1): Connection refused"
+[28-Jan-2020 04:48:12] WARNING: [pool www] child 27 said into stderr: "NOTICE: PHP message: WordPress database error Table 'database.wp_usermeta' doesn't exist for query SELECT user_id, meta_key, meta_value FROM wp_usermeta WHERE user_id IN (1) ORDER BY umeta_id ASC made by require_once('wp-load.php'), require_once('wp-config.php'), require_once('wp-settings.php'), load_default_textdomain, determine_locale, get_user_locale, wp_get_current_user, _wp_get_current_user, apply_filters('determine_current_user'), WP_Hook->apply_filters, wp_validate_auth_cookie, get_user_by, WP_User->init, WP_User->for_site, WP_User->get_caps_data, get_user_meta, get_metadata, update_meta_cache"
+[28-Jan-2020 04:54:01] WARNING: [pool www] server reached pm.max_children setting (5), consider raising it
+[28-Jan-2020 04:54:37] WARNING: [pool www] server reached pm.max_children setting (5), consider raising it
+[28-Jan-2020 10:21:31] WARNING: [pool www] server reached pm.max_children setting (5), consider raising it
+[12-Feb-2020 02:04:45] WARNING: [pool www] child 95 said into stderr: "NOTICE: PHP message: WordPress database error Column 'browser_short_name' cannot be null for query INSERT INTO `wp_avc_page_visit_history` (`article_id`, `date`, `last_date`, `article_type`, `user_type`, `device_type`, `ip_address`, `user_id`, `browser_full_name`, `browser_short_name`, `browser_version`, `operating_system`, `http_referer`, `site_id`, `country`) VALUES (714, '2020-02-12 09:04:43', '2020-02-12 09:04:43', 'page', 'Guest', 'Desktop', '172.19.0.1', 0, 'Unknown', NULL, '?', 'Unknown', 'Direct', 1, NULL) made by require('wp-blog-header.php'), wp, WP->main, do_action_ref_array('wp'), WP_Hook->do_action, WP_Hook->apply_filters, Advanced_Visit_Counter_Public->update_page_visit_stats"
+[12-Feb-2020 07:47:13] WARNING: [pool www] child 96 said into stderr: "NOTICE: PHP message: WordPress database error Column 'browser_short_name' cannot be null for query INSERT INTO `wp_avc_page_visit_history` (`article_id`, `date`, `last_date`, `article_type`, `user_type`, `device_type`, `ip_address`, `user_id`, `browser_full_name`, `browser_short_name`, `browser_version`, `operating_system`, `http_referer`, `site_id`, `country`) VALUES (714, '2020-02-12 14:47:13', '2020-02-12 14:47:13', 'page', 'Guest', 'Desktop', '172.19.0.1', 0, 'Unknown', NULL, '?', 'Unknown', 'Direct', 1, NULL) made by require('wp-blog-header.php'), wp, WP->main, do_action_ref_array('wp'), WP_Hook->do_action, WP_Hook->apply_filters, Advanced_Visit_Counter_Public->update_page_visit_stats"
+[21-Feb-2020 03:52:03] NOTICE: fpm is running, pid 1
+[21-Feb-2020 03:52:03] NOTICE: ready to handle connections
+[02-Mar-2020 02:34:36] NOTICE: fpm is running, pid 1
+[02-Mar-2020 02:34:36] NOTICE: ready to handle connections
+[05-Mar-2020 04:01:55] WARNING: [pool www] server reached pm.max_children setting (5), consider raising it
+[05-Mar-2020 04:04:25] WARNING: [pool www] server reached pm.max_children setting (5), consider raising it
+[05-Mar-2020 05:08:51] WARNING: [pool www] server reached pm.max_children setting (5), consider raising it
