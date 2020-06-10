@@ -1,11 +1,45 @@
-FROM php:7.2-fpm-alpine
+FROM php:7.3-fpm
+LABEL maintainer="dev@chialab.io"
 
-RUN apk upgrade --update && apk --no-cache add \
-    dom gmagick SimpleXML ssh2 xml xmlreader curl date exif filter ftp gd \
-    hash iconv imagick json libxml mbstring mysqli openssl pcre posix sockets \
-    SPL tokenizer zlib\
-    && docker-php-ext-install -j$(nproc) iconv mysqli pdo pdo_mysql curl bcmath mcrypt mbstring json xml zip opcache \
-	&& docker-php-ext-configure gd --with-freetype-dir=/usr/include/ --with-jpeg-dir=/usr/include/ \
-	&& docker-php-ext-install -j$(nproc) gd
+# Download script to install PHP extensions and dependencies
+ADD https://raw.githubusercontent.com/mlocati/docker-php-extension-installer/master/install-php-extensions /usr/local/bin/
 
-CMD ["php-fpm"]
+RUN chmod uga+x /usr/local/bin/install-php-extensions && sync
+
+RUN DEBIAN_FRONTEND=noninteractive apt-get update -q \
+    && DEBIAN_FRONTEND=noninteractive apt-get install -qq -y \
+      curl \
+      git \
+      zip unzip \
+    && install-php-extensions \
+      bcmath \
+      bz2 \
+      calendar \
+      exif \
+      gd \
+      intl \
+      ldap \
+      memcached \
+      mysqli \
+      opcache \
+      pdo_mysql \
+      pdo_pgsql \
+      pgsql \
+      redis \
+      soap \
+      xsl \
+      zip \
+      sockets
+# already installed:
+#      iconv \
+#      mbstring \
+
+# Install Composer.
+RUN curl -sS https://getcomposer.org/installer | php -- --install-dir=/usr/local/bin --filename=composer \
+    && ln -s $(composer config --global home) /root/composer
+ENV PATH=$PATH:/root/composer/vendor/bin COMPOSER_ALLOW_SUPERUSER=1
+
+# Install prestissimo (composer plugin). Plugin that downloads packages in parallel to speed up the installation process
+# After release of Composer 2.x, remove prestissimo, because parallelism already merged into Composer 2.x branch:
+# https://github.com/composer/composer/pull/7904
+RUN composer global require hirak/prestissimo
